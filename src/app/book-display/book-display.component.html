@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col l12 s6">
+      <ul class="bookshelf ">
+        <li *ngFor="let book of books">
+          <div class="container book">
+            <p>Author - {{book.Author | capitalizeFirst}}</p>
+            <p>Title - {{book.Title | capitalizeFirst}}</p>
+            <p>Publish Date - {{book.Date}}</p>
+          <a (click)="openEditBook(book)">Edit Book</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!--Edit Book Modal -->
+<div id="modal1" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]"
+     [materializeActions]="editBookClicked">
+  <app-edit-book (closeEditClicked)="closeLog($event)" (bookChanged)="bookChanged($event)"></app-edit-book>
+</div>
