@@ -21,8 +21,6 @@ export class EditBookComponent implements OnInit {
   }
 
 
-
-
   closeLogEmit() {
     this.closeEditClicked.emit();
   }

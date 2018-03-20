@@ -10,6 +10,7 @@ import {MaterializeAction} from 'angular2-materialize';
 })
 export class BookDisplayComponent implements OnInit {
   editBookClicked = new EventEmitter<string|MaterializeAction>();
+  addBookClicked = new EventEmitter<string | MaterializeAction>();
 
   books: Book[];
 
@@ -28,8 +29,20 @@ export class BookDisplayComponent implements OnInit {
   }
 
   closeLog() {
+    this.addBookClicked.emit({action: 'modal', params: ['close']});
     this.editBookClicked.emit({action: 'modal', params: ['close']});
   }
 
+  openAddBook() {
+    this.addBookClicked.emit({action: 'modal', params: ['open']});
+  }
 
+
+  removeBook(book) {
+
+    this.bookService.removeBook(book);
+  }
 }
+
+
+

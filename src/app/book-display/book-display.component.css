@@ -12,6 +12,10 @@ a {
 
 }
 
+.header {
+  text-align: center;
+}
+
 .book p {
   margin-left: 20px
 }
@@ -27,9 +31,20 @@ a {
   border: 1px solid #ffddff;
 }
 
-.edit-button {
-  position: absolute;
-  top: 70%;
-  left: 20%
+.btn {
+  margin: 5px;
+  width: 145px;
+  transform: translate(5px, 5px);
 
+}
+
+.btn-large {
+  width: 500px;
+  margin-left: 25%;
+}
+
+.button-group {
+  position: absolute;
+  top: 55%;
+  left: 20%
 }

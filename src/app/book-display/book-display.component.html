@@ -1,13 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col l12 s6">
+    <div class="col l12 m6 s2">
+      <div class="header">
+        <h3>There are currently {{books?.length}} books in the collection</h3>
+      </div>
+      <button type="button" class="btn-large" (click)="openAddBook()">New Book</button>
       <ul class="bookshelf ">
         <li *ngFor="let book of books">
           <div class="container book">
             <p>Author - {{book.Author | capitalizeFirst}}</p>
             <p>Title - {{book.Title | capitalizeFirst}}</p>
-            <p>Publish Date - {{book.Date}}</p>
-          <button type="button" class="btn edit-button" (click)="openEditBook(book)">Edit Book</button>
+            <p>Publish Date - {{book.Date | date:'yyyy-MM-dd'}}</p>
+            <div class="button-group">
+              <button type="button" class="btn" (click)="openEditBook(book)">Edit Book</button>
+
+              <button type="button" class="btn red" (click)="removeBook(book)">Remove Book</button>
+            </div>
           </div>
         </li>
       </ul>
@@ -19,5 +27,12 @@
 <!--Edit Book Modal -->
 <div id="modal1" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]"
      [materializeActions]="editBookClicked">
-  <app-edit-book (closeEditClicked)="closeLog($event)" (bookChanged)="bookChanged($event)"></app-edit-book>
+  <app-edit-book (closeEditClicked)="closeLog()"></app-edit-book>
 </div>
+
+<!--Add Book Modal -->
+<div id="modal2" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]"
+     [materializeActions]="addBookClicked">
+  <app-new-book (closeAddBookClicked)="closeLog()"></app-new-book>
+</div>
+

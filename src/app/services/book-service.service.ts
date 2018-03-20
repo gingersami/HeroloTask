@@ -15,7 +15,7 @@ export class BookService {
   }
 
   populateBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>('assets/books.json' || 'src/assets/books.json')
+    return this.http.get<Book[]>('assets/books.json')
       .map((data) => {
         this.books = data;
         return this.books;
@@ -25,6 +25,15 @@ export class BookService {
   editBook(newBook) {
     const index = this.books.findIndex((book) => book.Title === newBook.old.Title);
     this.books[index] = newBook.new;
+  }
+
+  removeBook(removeBook: Book) {
+    const index = this.books.findIndex((book) => book.Title === removeBook.Title);
+    this.books.splice(index, 1);
+  }
+
+  addBook(newBook) {
+    this.books.unshift(newBook);
   }
 }
 

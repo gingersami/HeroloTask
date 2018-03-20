@@ -10,6 +10,7 @@ import {CapitalizeFirstPipe} from './capitalize-first-letter.pipe';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterializeModule} from 'angular2-materialize';
 import {EditBookComponent} from './edit-book/edit-book.component';
+import {NewBookComponent} from './new-book/new-book.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {EditBookComponent} from './edit-book/edit-book.component';
     BookDisplayComponent,
     CapitalizeFirstPipe,
     EditBookComponent,
+    NewBookComponent,
 
   ],
   imports: [
