@@ -16,7 +16,7 @@ export class BookDisplayComponent implements OnInit {
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
-    this.bookService.getBooks().subscribe(data => {
+    this.bookService.populateBooks().subscribe(data => {
       this.books = data;
     });
   }
@@ -29,10 +29,6 @@ export class BookDisplayComponent implements OnInit {
 
   closeLog() {
     this.editBookClicked.emit({action: 'modal', params: ['close']});
-  }
-
-  bookChanged(change) {
-
   }
 
 

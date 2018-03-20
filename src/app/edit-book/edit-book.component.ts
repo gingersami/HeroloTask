@@ -8,6 +8,7 @@ import {BookService} from '../services/book-service.service';
   styleUrls: ['./edit-book.component.css']
 })
 export class EditBookComponent implements OnInit {
+
   @Output() closeEditClicked: EventEmitter<any> = new EventEmitter();
   book: Book;
   @Output() bookChanged = new EventEmitter();
@@ -19,6 +20,9 @@ export class EditBookComponent implements OnInit {
     });
   }
 
+
+
+
   closeLogEmit() {
     this.closeEditClicked.emit();
   }
@@ -26,6 +30,6 @@ export class EditBookComponent implements OnInit {
 
 
   onSubmit(changes: Book) {
-
+    this.bookService.editBook(changes);
   }
 }

@@ -7,7 +7,7 @@
             <p>Author - {{book.Author | capitalizeFirst}}</p>
             <p>Title - {{book.Title | capitalizeFirst}}</p>
             <p>Publish Date - {{book.Date}}</p>
-          <a (click)="openEditBook(book)">Edit Book</a>
+          <button type="button" class="btn edit-button" (click)="openEditBook(book)">Edit Book</button>
           </div>
         </li>
       </ul>

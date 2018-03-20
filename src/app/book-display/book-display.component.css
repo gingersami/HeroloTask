@@ -1,23 +1,35 @@
 
-.bookshelf{
-  display:flex;
+.bookshelf {
+  display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   line-height: 2;
-  font-weight:700;
+  font-weight: 700;
 }
 
-a{
-  cursor:pointer;
+a {
+  cursor: pointer;
 
 }
 
-.book{
-  -webkit-box-shadow: -5px -5px 2px 0px rgba(0,0,0,0.40);
-  -moz-box-shadow: -5px -5px 2px 0px rgba(0,0,0,0.40);
-  box-shadow: -5px -5px 9px 2px rgba(0,0,0,0.40);
-  height:155px;
-  width:250px;
+.book p {
+  margin-left: 20px
+}
+
+.book {
+  position: relative;
+  -webkit-box-shadow: -5px -5px 2px 0 rgba(0, 0, 0, 0.40);
+  -moz-box-shadow: -5px -5px 2px 0 rgba(0, 0, 0, 0.40);
+  box-shadow: -5px -5px 9px 2px rgba(0, 0, 0, 0.40);
+  height: 250px;
+  width: 250px;
   margin: 25px;
   border: 1px solid #ffddff;
+}
+
+.edit-button {
+  position: absolute;
+  top: 70%;
+  left: 20%
+
 }
