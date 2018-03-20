@@ -32,8 +32,14 @@ export class BookService {
     this.books.splice(index, 1);
   }
 
-  addBook(newBook) {
+  addBook(newBook: Book) {
     this.books.unshift(newBook);
+  }
+
+  checkDuplicate(newBook: Book) {
+    return this.books.some((book) => {
+      return newBook.Title.toLowerCase() === book.Title.toLowerCase();
+    });
   }
 }
 
