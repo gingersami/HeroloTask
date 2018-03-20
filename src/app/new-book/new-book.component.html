@@ -1,0 +1,45 @@
+<div class="modal-content">
+  <h4>Edit Book</h4>
+  <div class="row">
+    <form class="col s12" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="book_title" class="active">Book Name</label>
+          <input required minlength=1 [(ngModel)]="book.Title" name="Title" id="book_title"
+                 type="text" class="validate" #title>
+          <div *ngIf="title.errors && (title.dirty || title.touched)" class="alert">
+            <div [hidden]="!title.errors.minlength">
+              Book title is required!
+            </div>
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <label for="book_author" class="active">Author Name</label>
+          <input minlength=1 [(ngModel)]="book.Author" id="book_author" name="Author" type="text" class="validate"
+                 #author="ngModel">
+
+          <div *ngIf="author.errors && (author.dirty || author.touched)" class="alert">
+            <div [hidden]="!author.errors.minlength">
+              Author is required!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="book_date" class="active">Publish Date</label>
+          <input required [(ngModel)]="book.Date " id="book_date" name="Date" type="date"
+                 class="validate">
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a class="waves-effect waves-green btn-flat" (click)="closeLogEmit()">Dismiss</a>
+        <button type="submit" [disabled]="!form.valid"
+                class="modal-action modal-close waves-effect waves-green btn-flat">Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
