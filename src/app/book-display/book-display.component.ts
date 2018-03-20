@@ -9,12 +9,14 @@ import {MaterializeAction} from 'angular2-materialize';
   styleUrls: ['./book-display.component.css']
 })
 export class BookDisplayComponent implements OnInit {
-  editBookClicked = new EventEmitter<string|MaterializeAction>();
+  editBookClicked = new EventEmitter<string | MaterializeAction>();
   addBookClicked = new EventEmitter<string | MaterializeAction>();
+  removeBookClicked = new EventEmitter<string | MaterializeAction>();
 
   books: Book[];
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService) {
+  }
 
   ngOnInit() {
     this.bookService.populateBooks().subscribe(data => {
@@ -29,6 +31,7 @@ export class BookDisplayComponent implements OnInit {
   }
 
   closeLog() {
+    this.removeBookClicked.emit({action: 'modal', params: ['close']});
     this.addBookClicked.emit({action: 'modal', params: ['close']});
     this.editBookClicked.emit({action: 'modal', params: ['close']});
   }
@@ -37,11 +40,13 @@ export class BookDisplayComponent implements OnInit {
     this.addBookClicked.emit({action: 'modal', params: ['open']});
   }
 
+  openRemoveBook(book) {
+    this.bookService.SelectedBook.emit(book);
+    this.removeBookClicked.emit({action: 'modal', params: ['open']});
 
-  removeBook(book) {
-
-    this.bookService.removeBook(book);
   }
+
+
 }
 
 

@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterializeModule} from 'angular2-materialize';
 import {EditBookComponent} from './edit-book/edit-book.component';
 import {NewBookComponent} from './new-book/new-book.component';
+import {RemoveBookComponent} from './remove-book/remove-book.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {NewBookComponent} from './new-book/new-book.component';
     CapitalizeFirstPipe,
     EditBookComponent,
     NewBookComponent,
+    RemoveBookComponent,
 
   ],
   imports: [

@@ -14,7 +14,7 @@
             <div class="button-group">
               <button type="button" class="btn" (click)="openEditBook(book)">Edit Book</button>
 
-              <button type="button" class="btn red" (click)="removeBook(book)">Remove Book</button>
+              <button type="button" class="btn red" (click)="openRemoveBook(book)">Remove Book</button>
             </div>
           </div>
         </li>
@@ -34,5 +34,11 @@
 <div id="modal2" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]"
      [materializeActions]="addBookClicked">
   <app-new-book (closeAddBookClicked)="closeLog()"></app-new-book>
+</div>
+
+<!--remove Book Modal -->
+<div id="modal3" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]"
+     [materializeActions]="removeBookClicked">
+  <app-remove-book (closeRemoveButtonClicked)="closeLog()"></app-remove-book>
 </div>
 
