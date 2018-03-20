@@ -26,6 +26,6 @@ export class EditBookComponent implements OnInit {
 
 
   onSubmit(changes: Book) {
-    
+
   }
 }
