@@ -25,7 +25,6 @@ export class NewBookComponent implements OnInit {
   }
 
 
-
   onSubmit(newBook: Book) {
     if (!this.bookService.checkDuplicate(newBook)) {
       this.bookService.addBook(newBook);
@@ -38,6 +37,7 @@ export class NewBookComponent implements OnInit {
   }
 
   closeLogEmit() {
+    this.form.reset();
     this.closeAddBookClicked.emit();
   }
 
